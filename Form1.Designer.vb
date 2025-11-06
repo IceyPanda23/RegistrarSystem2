@@ -23,12 +23,13 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         agent_cb = New GroupBox()
+        Label1 = New Label()
         receivingagent_cb = New ComboBox()
         receivingagent_labo = New Label()
         senderagent_labo = New Label()
         counter_cb = New ComboBox()
         counter_labo = New Label()
-        ComboBox1 = New ComboBox()
+        broker_cb = New ComboBox()
         broker_labo = New Label()
         certificateno_tb = New TextBox()
         certificatenumber_labo = New Label()
@@ -37,10 +38,9 @@ Partial Class Form1
         datereceived_labo = New Label()
         datereceived_calend = New DateTimePicker()
         GroupBox2 = New GroupBox()
-        Button1 = New Button()
+        receivetask_buto = New Button()
         Submit_buto = New Button()
         DataGridView1 = New DataGridView()
-        Label1 = New Label()
         agent_cb.SuspendLayout()
         GroupBox2.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
@@ -54,7 +54,7 @@ Partial Class Form1
         agent_cb.Controls.Add(senderagent_labo)
         agent_cb.Controls.Add(counter_cb)
         agent_cb.Controls.Add(counter_labo)
-        agent_cb.Controls.Add(ComboBox1)
+        agent_cb.Controls.Add(broker_cb)
         agent_cb.Controls.Add(broker_labo)
         agent_cb.Controls.Add(certificateno_tb)
         agent_cb.Controls.Add(certificatenumber_labo)
@@ -69,12 +69,21 @@ Partial Class Form1
         agent_cb.TabStop = False
         agent_cb.Text = "Document Receiving"
         ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(134, 203)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(116, 15)
+        Label1.TabIndex = 14
+        Label1.Text = "Logged In Username"
+        ' 
         ' receivingagent_cb
         ' 
         receivingagent_cb.FormattingEnabled = True
         receivingagent_cb.Location = New Point(134, 167)
         receivingagent_cb.Name = "receivingagent_cb"
-        receivingagent_cb.Size = New Size(200, 23)
+        receivingagent_cb.Size = New Size(342, 23)
         receivingagent_cb.TabIndex = 13
         ' 
         ' receivingagent_labo
@@ -91,16 +100,16 @@ Partial Class Form1
         senderagent_labo.AutoSize = True
         senderagent_labo.Location = New Point(6, 203)
         senderagent_labo.Name = "senderagent_labo"
-        senderagent_labo.Size = New Size(84, 15)
+        senderagent_labo.Size = New Size(80, 15)
         senderagent_labo.TabIndex = 10
-        senderagent_labo.Text = "Sender Agent :"
+        senderagent_labo.Text = "Submited by :"
         ' 
         ' counter_cb
         ' 
         counter_cb.FormattingEnabled = True
         counter_cb.Location = New Point(134, 135)
         counter_cb.Name = "counter_cb"
-        counter_cb.Size = New Size(200, 23)
+        counter_cb.Size = New Size(342, 23)
         counter_cb.TabIndex = 9
         ' 
         ' counter_labo
@@ -112,13 +121,13 @@ Partial Class Form1
         counter_labo.TabIndex = 8
         counter_labo.Text = "Counter :"
         ' 
-        ' ComboBox1
+        ' broker_cb
         ' 
-        ComboBox1.FormattingEnabled = True
-        ComboBox1.Location = New Point(134, 106)
-        ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(200, 23)
-        ComboBox1.TabIndex = 7
+        broker_cb.FormattingEnabled = True
+        broker_cb.Location = New Point(134, 106)
+        broker_cb.Name = "broker_cb"
+        broker_cb.Size = New Size(342, 23)
+        broker_cb.TabIndex = 7
         ' 
         ' broker_labo
         ' 
@@ -133,7 +142,7 @@ Partial Class Form1
         ' 
         certificateno_tb.Location = New Point(134, 77)
         certificateno_tb.Name = "certificateno_tb"
-        certificateno_tb.Size = New Size(200, 23)
+        certificateno_tb.Size = New Size(342, 23)
         certificateno_tb.TabIndex = 5
         ' 
         ' certificatenumber_labo
@@ -150,7 +159,7 @@ Partial Class Form1
         documenttype_cb.FormattingEnabled = True
         documenttype_cb.Location = New Point(134, 48)
         documenttype_cb.Name = "documenttype_cb"
-        documenttype_cb.Size = New Size(200, 23)
+        documenttype_cb.Size = New Size(342, 23)
         documenttype_cb.TabIndex = 3
         ' 
         ' documenttype_labo
@@ -175,12 +184,12 @@ Partial Class Form1
         ' 
         datereceived_calend.Location = New Point(134, 16)
         datereceived_calend.Name = "datereceived_calend"
-        datereceived_calend.Size = New Size(200, 23)
+        datereceived_calend.Size = New Size(342, 23)
         datereceived_calend.TabIndex = 0
         ' 
         ' GroupBox2
         ' 
-        GroupBox2.Controls.Add(Button1)
+        GroupBox2.Controls.Add(receivetask_buto)
         GroupBox2.Controls.Add(Submit_buto)
         GroupBox2.Location = New Point(12, 268)
         GroupBox2.Name = "GroupBox2"
@@ -188,14 +197,14 @@ Partial Class Form1
         GroupBox2.TabIndex = 1
         GroupBox2.TabStop = False
         ' 
-        ' Button1
+        ' receivetask_buto
         ' 
-        Button1.Location = New Point(214, 22)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(135, 23)
-        Button1.TabIndex = 1
-        Button1.Text = "Receive Task"
-        Button1.UseVisualStyleBackColor = True
+        receivetask_buto.Location = New Point(214, 22)
+        receivetask_buto.Name = "receivetask_buto"
+        receivetask_buto.Size = New Size(135, 23)
+        receivetask_buto.TabIndex = 1
+        receivetask_buto.Text = "Receive Task"
+        receivetask_buto.UseVisualStyleBackColor = True
         ' 
         ' Submit_buto
         ' 
@@ -214,15 +223,6 @@ Partial Class Form1
         DataGridView1.Name = "DataGridView1"
         DataGridView1.Size = New Size(764, 166)
         DataGridView1.TabIndex = 2
-        ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(134, 203)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(116, 15)
-        Label1.TabIndex = 14
-        Label1.Text = "Logged In Username"
         ' 
         ' Form1
         ' 
@@ -251,7 +251,7 @@ Partial Class Form1
     Friend WithEvents certificateno_tb As TextBox
     Friend WithEvents certificatenumber_labo As Label
     Friend WithEvents broker_labo As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents broker_cb As ComboBox
     Friend WithEvents counter_cb As ComboBox
     Friend WithEvents counter_labo As Label
     Friend WithEvents receivingagent_labo As Label
@@ -260,5 +260,6 @@ Partial Class Form1
     Friend WithEvents Submit_buto As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents Label1 As Label
+    Friend WithEvents receivetask_buto As Button
 
 End Class
